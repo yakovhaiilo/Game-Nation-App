@@ -1,0 +1,53 @@
+.footer{
+    color:white;
+    border-top: 4px solid #ff075a; 
+}
+.footer .bottom-footer{
+    padding: 10px;
+
+}
+
+.footer .overlay{
+    background-color: rgba(0,0,0,.7);
+    padding: 30px;
+}
+.footer h4{
+    font-family: 'Black Ops One';
+    color: #ff075a; 
+}
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+.footer ul li{
+    margin-bottom: 5px;
+}
+
+.footer ul li a {
+    text-decoration: none;
+    color: white;
+    
+}
+.footer ul li a:hover {
+    color: #ff075a;
+}
+.footer ul li a i{
+    font-size: 28px;
+}
+
+.fa-facebook-square{
+    color:#3b5998;
+}
+.fa-linkedin{
+    color:#007bb5;
+}
+.fa-twitter-square{ 
+    color:#1da1f2;
+}
+
+.fa-instagram{
+    color:#c32aa3;
+}
+
+
+

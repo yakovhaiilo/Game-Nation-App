@@ -1,0 +1,73 @@
+.account-signup{
+    background-image: url("../images/s4.jpg");
+    background-size: cover;
+    width: 100%;
+    padding: 20px;
+}
+.account-login{
+    background-image: url("../images/s8.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 800px;
+    padding: 20px;
+}
+
+.signup-form {
+    width: 60%;
+    margin: 0 auto;
+    background-color: grey;
+    opacity: 0.8;
+    color: white;
+    font-weight: 900;
+    width: 400px;
+    font-family: 'Black Ops One', cursive;
+    box-shadow: 4px 4px 4px black;
+}
+
+.login-form {
+    width: 60%;
+    height: 95%;
+    margin: 0 auto;
+    background-color: grey;
+    opacity: 0.8;
+    color: white;
+    width: 400px;
+    font-family: 'Black Ops One', cursive;
+    box-shadow: 4px 4px 4px black;
+}
+ 
+input[type=text], input[type=password] , input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    box-sizing: border-box;
+  }  
+
+button {
+    background-color: #ff075a;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    color: black;
+  }
+  
+  .avatar-container{
+      text-align: center;
+  }
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+
+  .login-form a {
+    color:  black;
+  }
