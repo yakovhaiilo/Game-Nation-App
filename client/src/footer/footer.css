@@ -1,6 +1,6 @@
 .footer{
     color:white;
-    border-top: 4px solid #ff075a; 
+    border-top: 4px solid rgb(114, 89, 7) ; 
 }
 .footer .bottom-footer{
     padding: 10px;
@@ -13,8 +13,8 @@
 }
 .footer h4{
     font-family: 'Black Ops One';
-    color: #ff075a; 
-}
+     color: rgb(114, 89, 7) 
+    }
 .footer ul {
     list-style-type: none;
     padding: 0;
@@ -29,7 +29,7 @@
     
 }
 .footer ul li a:hover {
-    color: #ff075a;
+    color: rgb(114, 89, 7) 
 }
 .footer ul li a i{
     font-size: 28px;

@@ -10,8 +10,7 @@ export default class SearchResult extends Component {
     super(props);
     this.isloading = true;
     this.state = {
-      theGanre: this.props.genreId,
-      gamesArrays: [],
+      genreResult: [],
       page: 1
     };
   }
@@ -25,7 +24,7 @@ export default class SearchResult extends Component {
         }&ordering=-reting`
       )
       .then(res => {
-        this.setState({ gamesArrays: res.data.results });
+        this.setState({ genreResult: res.data.results });
       });
   }
 
@@ -52,7 +51,7 @@ export default class SearchResult extends Component {
           }&ordering=-reting`
         )
         .then(res => {
-          this.setState({ gamesArrays: res.data.results });
+          this.setState({ genreResult: res.data.results });
           this.isloading = true;
         });
     }
@@ -66,16 +65,17 @@ export default class SearchResult extends Component {
           }&ordering=-reting`
         )
         .then(res => {
-          this.setState({ gamesArrays: res.data.results, page: 1 });
+          this.setState({ genreResult: res.data.results, page: 1 });
+          this.isloading = true;
         });
     }
   }
 
-  checkDataGame(gameArray) {
-    if (gameArray) {
+  checkDataGame(result) {
+    if (result) {
       return (
         <Row>
-          {gameArray.map((game, i) => (
+          {result.map((game, i) => (
             <Col md="3" key={i}>
               <Searchitem
                 id={game.id}
@@ -118,7 +118,7 @@ export default class SearchResult extends Component {
           </div>
         ) : (
         
-          <div>{this.checkDataGame(this.state.gamesArrays)}</div>
+          <div>{this.checkDataGame(this.state.genreResult)}</div>
         )}
       </div>
     );

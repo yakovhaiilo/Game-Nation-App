@@ -20,12 +20,10 @@ export default class Home extends Component {
   componentDidMount() {
     this._isMounted = true;
     this.isloading = false;
-    const resRecent = axios.get( "https://api.rawg.io/api/games?dates=2020-01-01,2020-12-31&ordering=-added&page_size=8" );
+    const resRecent = axios.get("https://api.rawg.io/api/games?dates=2020-01-01,2020-12-31&ordering=-added&page_size=8" );
     const resPopular = axios.get( "https://api.rawg.io/api/games?ordering=-reting&page_size=8");
     axios.all([resRecent, resPopular]).then(
-        axios.spread((...responses) => {
-          
-        
+        axios.spread((...responses) => {   
           if (this._isMounted) {
             this.setState({
               popularGames: responses[0].data.results,
@@ -34,8 +32,8 @@ export default class Home extends Component {
           }
         })
       )
-      .catch(error => {
-        console.error(error);
+      .catch(err => {
+        console.log(err);
       });
   }
 
@@ -82,9 +80,9 @@ export default class Home extends Component {
           </div>
         ) : (
           <Container fluid="s">
-            <h1 className="pupular">Popular Games</h1>
+            <h1 className="title">Popular GAMES</h1>
             {this.checkDataGame(this.state.popularGames)}
-            <h1 className="pupular">Recent Games</h1>
+            <h1 className="title">Recent GAMES</h1>
             {this.checkDataGame(this.state.recentGames)}
           </Container>
         )}

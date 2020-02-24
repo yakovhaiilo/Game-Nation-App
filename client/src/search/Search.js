@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SearchResult from "./SearchResult";
-import { Container } from "reactstrap";
-import './Search.css'
+import SportsLogo from "../images/bg12.jpg";
+import "./Search.css";
 
 const gamesId = {
   action: "4",
@@ -18,58 +18,52 @@ export default class Search extends Component {
     };
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.match.params.genre !== this.props.match.params.genre) {
-      this.setState({
-        title: this.props.match.params.genre,
-        genre: gamesId[this.props.match.params.genre]
-      });
-    }
-  }
-
-
-
-
   genre = () => {
     let genre = this.props.match.params.genre;
     let tempGenre;
     switch (genre) {
-      case "action":
+      case "Action":
         tempGenre = gamesId.action;
         break;
-      case "racing":
+      case "Racing":
         tempGenre = gamesId.racing;
         break;
-      case "sports":
+      case "Sports":
         tempGenre = gamesId.sports;
         break;
       default:
         break;
     }
+    console.log(tempGenre);
     return tempGenre;
   };
 
-  handleChange = (e) => {
-    this.setState({query : e.target.value});
-  }
-
-  render() { 
+  render() {
+    let background;
+    switch (this.state.title) {
+      case "Action":
+        background = "https://cdn.suwalls.com/wallpapers/games/prophet-in-crysis-2-54617-1920x1200.jpg";
+        break;
+      case "Sports":
+        background = "https://1.bp.blogspot.com/-QiXw_PtTxUI/XVt_B2Pc0gI/AAAAAAAAWnQ/UHiyDGPEVeMslz4GFIJ2py_y_Nb3yetuACLcBGAs/s2560/1031827-1440.jpg";
+        break;
+      case "Racing":
+        background = "https://www.wallpaperflare.com/static/105/445/194/need-for-speed-no-limits-video-games-night-city-wallpaper.jpg";
+        break;
+    }
+   
     return (
-      <div className = "Search">
-        <Container>
-          <h1 className = "pageTitle">{this.state.title}</h1>
-        </Container>
-      <div className="alert">
-       <span className="closebtn">&times;</span> 
-           <strong>Danger!</strong> Indicates a dangerous or potentially negative action.
-       </div>
+      <div className="Search">
+        <div className = "headerContainer">
+          <img className="pageBackground" src = {background}></img>
+          <div className = "pageTitle">
+             <h1> GN {this.state.title} GAMES </h1>
+           
+          </div>
          
-        <SearchResult
-         genreId={this.state.genre} 
-         genre={this.genre} 
-         suggestions = {this.state.suggestions}
-         
-         />
+        
+        </div>
+        <SearchResult genre={this.genre} />
       </div>
     );
   }

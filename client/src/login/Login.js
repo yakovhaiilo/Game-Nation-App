@@ -60,7 +60,6 @@ export default class Login extends Component {
         break;
       case "password":
         field.valid = field.value.length > 4;
-
         break;
 
       default:

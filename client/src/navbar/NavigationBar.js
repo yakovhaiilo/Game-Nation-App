@@ -52,15 +52,15 @@ export default class NavigationBar extends Component {
       
       <NavDropdown  title="Geners" id="collasible-nav-dropdown">
   
-        <NavDropdown.Item href="/search/genre/action">
-           Action
+        <NavDropdown.Item href="/search/genre/Action">
+        Action
         </NavDropdown.Item>
       
-        <NavDropdown.Item href="/search/genre/racing">
+        <NavDropdown.Item href="/search/genre/Racing">
         Racing
         </NavDropdown.Item>
-        <NavDropdown.Item  href="/search/genre/sports">
-        Sport
+        <NavDropdown.Item  href="/search/genre/Sports">
+        Sports
         </NavDropdown.Item>
       </NavDropdown>
       {localStorage.length >= 2 ?  (

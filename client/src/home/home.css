@@ -1,16 +1,16 @@
-.Home .pupular {
+.Home{
+  background-image: linear-gradient(-90deg, rgb(48, 14, 14), rgb(92, 81, 81), rgb(247, 243, 243));
+}
+
+.Home .title {
     text-align: center;
     margin-top: 10px;
     width: 80%;
     color: white ;
     margin: 10px auto;
     font-family: 'Black Ops One', cursive;
-
 }
-.Home{
-  background-image: linear-gradient(-90deg, rgb(48, 14, 14), rgb(92, 81, 81), rgb(247, 243, 243));
 
-}
 .Home .HomeBg {
     width: 100%;
     margin: 5vh 5vw;

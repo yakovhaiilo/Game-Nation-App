@@ -6,31 +6,44 @@ import { Container } from "reactstrap";
 export default class GamePage extends Component {
   constructor(props) {
     super(props);
-    this.isloading = true;
-    this._isMounted = false;
+
     this.state = {
+      flag : false,
       game: {},
-      flage: false
+      isloading : true
     };
   }
 
   componentDidMount() {
-    // this._isMounted = true;
     const id = this.props.match.params.id;
     axios.get(`https://api.rawg.io/api/games/${id}`).then(res => {
       const game = res.data;
-      this.setState({ game, flag: true });
+      this.setState({ game , isloading : false  , flag : true});
+  
     });
 
   }
 
   render() {
     const game = this.state.game;
-    console.log(game.short_screenshots)
 
     return (
       <div className="GamePage">
-        <img
+        
+        {this.state.isloading ? (
+          <div className="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        ) : (
+          <>
+          <img
           className="GamePage-cover-background"
           src={game.background_image_additional}
           alt={game.name}
@@ -86,6 +99,10 @@ export default class GamePage extends Component {
             </div>
           </div>
         </Container>
+        </>
+          
+        )}
+     
       </div>
     );
   }

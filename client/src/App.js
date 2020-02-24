@@ -18,45 +18,65 @@ export default class App extends Component {
     super(props);
     this.state = {
       user: null,
-      searchState : [],
-      favorites : []
+      searchState: [],
+      favorites: []
     };
   }
 
-  setSearchState = (data) =>{
-     this.setState({searchState : data })
-  }
+  setSearchState = data => {
+    this.setState({ searchState: data });
+  };
 
   setUser = user => {
     this.setState({ user: user });
-    if(user === null){
-      localStorage.clear()
+    if (user === null) {
+      localStorage.clear();
     }
   };
 
-  componentDidMount(){
-    axios.get('/')
+  componentDidMount() {
+    axios.get("/");
   }
 
   render() {
     return (
       <>
         <Router>
-          <NavigationBar 
-          loggedIn={this.state.user} 
-          setSearchState = {this.setSearchState}
+          <NavigationBar
+            loggedIn={this.state.user}
+            setSearchState={this.setSearchState}
           />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/about/About" component={About} />
-            <Route exact path="/user/Favorit" component={Favorite} />
-            <Route  path="/game/:id" exact component={GamePage} />
-            <Route path="/SearchGame" exact render =   { () => <SearchGame games = {this.state.searchState}/>} />
-            <Route path="/search/genre/:genre" exact render ={(routeParms)=> <Search {...routeParms} />} />
+            <Route exact
+             path="/" 
+             component={Home}
+            />
+            <Route exact 
+            path="/about/About"
+             component={About} 
+            />
+            <Route
+            exact path="/user/Favorit" 
+            component={Favorite} 
+            />
+            <Route 
+            path="/game/:id" 
+            exact component={GamePage}
+             />
+            <Route
+              path="/SearchGame"
+              exact
+              render={() => <SearchGame games={this.state.searchState} />}
+            />
+            <Route
+              path="/search/genre/:genre"
+              exact
+              render={routeParms => <Search {...routeParms} />}
+            />
             <Route
               exact
               path="/login/Login"
-              render={() => <Login setUser = {this.setUser} />}
+              render={() => <Login setUser={this.setUser} />}
             />
             <Route
               exact
